@@ -1,1 +1,1 @@
-exports.lang = 
+exports.lang1 = "";

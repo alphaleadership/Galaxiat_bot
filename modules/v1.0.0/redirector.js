@@ -8,6 +8,7 @@ module.exports = {
         if (msg.author.id == settings.owner_id) {
             if (args[0] == "log") {
                 owner.log(bot, msg, args);
+                core.create_log("info","logs request done");
             }
         }
         if (bot_infos.enable()) {

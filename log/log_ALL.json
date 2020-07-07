@@ -1,3 +1,4 @@
 {
-  "function () { [native code] }": "good : 129 ms"
+  "function () { [native code] }": "good : 104 ms",
+  "time": "logs request done"
 }

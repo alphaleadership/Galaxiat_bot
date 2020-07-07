@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const settings = require('../../settings.js');
 const cache = require('../../cache.js');
+emoji = require("../../lang/emoji.js")
 var mkdirp = require('mkdirp');
-const { time } = require('console');
-
+let date_ob = new Date();
 module.exports = {
 
     create_dir: function (dir) {
@@ -54,9 +54,14 @@ module.exports = {
     },
     upload_to_discord: function(channel, file)
     {
-        const attachment = new MessageAttachment(file);
+        const attachment = new Discord.MessageAttachment(file);
         // Send the attachment in the message channel
-        channel.send(attachment);
+        channel.send(emoji.loading+"uploading"+emoji.loading)
+           .then((msg) => {
+            channel.send(attachment);
+            msg.edit(emoji.tickgreen+"uploading"+emoji.tickgreen);
+            }, 1000);  
+        
     },
     create_log : function(type, log){
         //log, warn, error, debug, info
@@ -65,11 +70,12 @@ module.exports = {
         // info = je met une info ex : nb d'écriture
         // warn = erreur mais qui bloque pas
         // error = erreur qui bloque
+        
         channel = cache.bot.channels.cache.get(settings.bot_log_channel_id);
         channel.send(type + ' : ' +log);
         //channel = cache.bot.channels[settings.bot_log_channel_id].send(type + ' : ' +log);
         console[type](log);
-        this.write_json(__dirname+"/../../log/log_ALL.json",time , log);
-        this.write_json(__dirname+"/../../log/log_"+type+".json", time, log);
+        this.write_json(__dirname+"/../../log/log_ALL.json","time" , log);
+        this.write_json(__dirname+"/../../log/log_"+type+".json", "time", log);
     }
 }
