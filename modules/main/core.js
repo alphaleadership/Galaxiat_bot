@@ -63,7 +63,7 @@ module.exports = {
         channel.send(type + ' : ' +log);
         //channel = cache.bot.channels[settings.bot_log_channel_id].send(type + ' : ' +log);
         console[type](log);
-        this.write_json("../../log/logALL.json", time, log);
-        this.write_json("../../log/log_"+type+".json", time, log);
+        this.write_json(__dirname+"/../../log/logALL.json",time , log);
+        this.write_json(__dirname+"/../../log/log_"+type+".json", time, log);
     }
 }

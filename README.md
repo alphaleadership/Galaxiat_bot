@@ -1,22 +1,13 @@
 # Galaxiat bot
 
-## Commandes 
+## Installation or update
 
-### Modération :
+when you install the bot run ```install.sh``` or ```install.bat```.
 
-> warn 
+## run
 
-> unwarn
+to run the bot rename the ```.env-example``` to ```.env``` and paste your discord bot tooken avaliable at : https://discord.com/developers/applications
 
+## need more infos ?
 
-> mute 
-
-> unmute
-
-> kick
-
-> ban
-
-> unban 
-
->
+https://discord.gg/8ugWvqu
