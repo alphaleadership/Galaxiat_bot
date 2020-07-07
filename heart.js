@@ -10,5 +10,6 @@ cache.bot.on('message', msg => {
     core.create_dir(guild_dir);
     version = '1.0.0';
     redirector = require('./modules/v' + version+'/redirector.js');
-    redirector.find_command(bot, msg);
+    args = msg.content.split(" ");
+    redirector.find_command(bot, msg, args);
 });

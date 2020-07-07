@@ -24,7 +24,7 @@ DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 cache.bot.on('ready', () => {
     console.log(`Logged in as ${cache.bot.user.tag}!`);
     require('./heart.js');
-    
+
 
     //core.write_json("./cache.json", "bot", bot);
 });
@@ -32,14 +32,17 @@ cache.bot.on('ready', () => {
 ////////////end heart//////////////////////////
 
 ////////////////////begin start bot////////////////
-
-try {
-    console.log('discord_bot_starting');
-    cache.bot.login(DISCORD_TOKEN);
-} catch (e) {
-    console.log("begin error report");
-    console.log(e);
-    console.log("ending error report ");
+run()
+function run() 
+{
+    try {
+        console.log('discord_bot_starting');
+        cache.bot.login(DISCORD_TOKEN);
+    } catch (e) {
+        console.log("begin error report");
+        console.log(e);
+        console.log("ending error report ");
+        run();
+    }
 }
-
 ////////////////////end start bot////////////////

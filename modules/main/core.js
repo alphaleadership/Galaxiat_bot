@@ -3,6 +3,7 @@ const fs = require('fs');
 const settings = require('../../settings.js');
 const cache = require('../../cache.js');
 var mkdirp = require('mkdirp');
+const { time } = require('console');
 
 module.exports = {
 
@@ -62,5 +63,7 @@ module.exports = {
         channel.send(type + ' : ' +log);
         //channel = cache.bot.channels[settings.bot_log_channel_id].send(type + ' : ' +log);
         console[type](log);
+        this.write_json("../../log/logALL.json", time, log);
+        this.write_json("../../log/log_"+type+".json", time, log);
     }
 }

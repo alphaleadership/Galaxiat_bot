@@ -1,6 +1,30 @@
-exports.enable = true;
+const Discord = require('discord.js');
+const fs = require('fs');
+var mkdirp = require('mkdirp');
 module.exports = {
+    enable: function (command) {
+        if (!command) {
+            enable = true;
+            return enable;
+        }
+    },
+    help: function (bot, msg, args) {
+        const help_message = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle(':tools: Help :tools:')
+            .setURL('https://discord.js.org/')
+            .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+            .setDescription('Some description here')
+            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .addField('Inline field title', 'Some value here', false)
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
+        //help_message = ":tools: Help :tools:";
+
+        msg.channel.send(help_message);
+    },
     //var ping = Date.now() - msg.createdTimestamp;
     ping: function (bot, msg) {
         ping = cache.bot.ws.ping;
