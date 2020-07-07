@@ -52,6 +52,12 @@ module.exports = {
             return false;
         }
     },
+    upload_to_discord: function(channel, file)
+    {
+        const attachment = new MessageAttachment(file);
+        // Send the attachment in the message channel
+        channel.send(attachment);
+    },
     create_log : function(type, log){
         //log, warn, error, debug, info
         // log = action enrgistré 
@@ -63,7 +69,7 @@ module.exports = {
         channel.send(type + ' : ' +log);
         //channel = cache.bot.channels[settings.bot_log_channel_id].send(type + ' : ' +log);
         console[type](log);
-        this.write_json(__dirname+"/../../log/logALL.json",time , log);
+        this.write_json(__dirname+"/../../log/log_ALL.json",time , log);
         this.write_json(__dirname+"/../../log/log_"+type+".json", time, log);
     }
 }

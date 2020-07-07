@@ -7,7 +7,7 @@ module.exports = {
     find_command: function (bot, msg, args) {
         if (msg.author.id == settings.owner_id) {
             if (args[0] == "log") {
-                
+                owner.log(bot, msg, args);
             }
         }
         if (bot_infos.enable()) {
