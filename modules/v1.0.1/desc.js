@@ -2,7 +2,7 @@ module.exports = {
 
     version : function ()
     {
-        version = "1.0.0";
+        version = "1.0.1";
         return version;
     },
     visible : function ()
@@ -12,7 +12,7 @@ module.exports = {
     },
     stable : function ()
     {
-        stable = 0; // 0 : en dev / 1 : little bug / 2 : major bug / 3 : stable
+        stable = 1; // 0 : en dev / 1 : little bug / 2 : major bug / 3 : stable
         return stable;
     },
     lts : function()

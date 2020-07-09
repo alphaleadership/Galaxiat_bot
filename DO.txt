@@ -3,3 +3,10 @@ debug = je met pour voir ou ca merde
 info = je met une info ex : nb d'écriture
 warn = erreur mais qui bloque pas
 error = erreur qui bloque
+
+licence : ataché au user ID
+licence file :
+- userids : active? 
+
+register db :
+- userid : data of expiration
