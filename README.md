@@ -6,7 +6,7 @@ Pour installer le bot cliquer sur ```install.sh``` ou ```install.bat```.
 
 ## lancer le bot
 
-Pour lancer le bot rennomer ```.env-example``` en ```.env``` et copier coller le tooken disponible sur : https://discord.com/developers/applications
+Pour lancer le bot rennomer ```.env-example``` en ```.env``` et ```settings_exemple.js``` en ```settings.js``` et copier coller le tooken disponible sur : https://discord.com/developers/applications dans le env
 
 Ensuite customiser les settings dans ```settings.js```
 
@@ -26,7 +26,7 @@ when you install the bot run ```install.sh``` or ```install.bat```.
 
 ## run
 
-to run the bot rename the ```.env-example``` to ```.env``` and paste your discord bot tooken avaliable at : https://discord.com/developers/applications
+to run the bot rename the ```.env-example``` to ```.env``` and  ```settings_exemple.js``` to ```settings.js``` and paste your discord bot tooken avaliable at : https://discord.com/developers/applications in the env file
 
 Then customise the settings in ```settings.js```
 
