@@ -69,6 +69,18 @@ module.exports = {
             }, 1000);  
         
     },
+    get_little_date :function()
+    {
+        let date_ob = new Date();
+        let date = ("0" + date_ob.getDate()).slice(-2);
+    
+        // current month
+        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    
+        // current year
+        let year = date_ob.getFullYear();
+        return year + "-" + month + "-" + date;
+    },
     get_date : function()
     {
         let date_ob = new Date();
@@ -102,6 +114,13 @@ module.exports = {
         // prints time in HH:MM format
         //console.log(hours + ":" + minutes);
         return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds +":"+ miliseconds;
+    },
+    create_invite : function(bot, channel_id)
+    {
+        channel = bot.channels.cache.get(channel_id)
+        let invite = channel.createInvite({maxAge: 0,},)
+        return invite;
+        //return core.read_json(__dirname+"/../../cache.json").invite;
     },
     create_log : function(type, log){
         //log, warn, error, debug, info

@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-
-
+const infos = require('../../infos.js');
+const core = require('../main/core.js');
 /////////////////////////reload
 module.exports = {
     list_version: function () {
@@ -10,6 +10,7 @@ module.exports = {
         const stable = [];
         const lts = [];
         const lastest = [];
+        const end_of_support =[];
         a = 0;
         directorys = [path.join(__dirname, '../')];
         directorys.forEach(function (directory) {
@@ -34,7 +35,8 @@ module.exports = {
                                         branchs[a] = desc.branch();
                                         stable[a] = desc.stable();
                                         lts[a] = desc.lts();
-                                        lastest[a] = desc.lastest();
+                                        //lastest[a] = desc.lastest();
+                                        end_of_support[a] = desc.end_of_support();
                                         //console.log(versions, branchs, stable);
                                         a++
 
@@ -60,20 +62,39 @@ module.exports = {
                     branchs,
                     stable,
                     lts,
-                    lastest
+                    //lastest,
+                    end_of_support
                    ];
         //console.log("befinfo : " + versions, branchs, stable);
         //
 
     },
-    check_version: function (version, guild_id) {
-        versions = this.list_version();
+    check_version: function (version) {
+        versions = this.list_version()[0];
         if (versions.includes(version)) {
+            return true;
+        }
+        else if (version == "lastest") 
+        {
             return true;
         }
         return false;
     },
     set_version: function(version, guild_id) {
-
+        file = __dirname+"/../../db/"+guild_id+"/guild_settings.json";
+        core.write_json(file, "version", version);
+    },
+    read_version: function(guild_id)
+    {
+        file = __dirname+"/../../db/"+guild_id+"/guild_settings.json";
+        version = core.read_json(file).version;
+        if (version == "lastest")
+        {
+            return infos.lastest_version_stable;
+        }
+        else
+        {
+            return version;
+        }
     }
 }

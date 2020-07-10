@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+delete require.cache[require.resolve("../../infos.js")];
+delete require.cache[require.resolve("../../settings.js")];
 /////////////////////////reload
 directorys = [path.join(__dirname, '../../lang/'), path.join(__dirname, '../'), path.join(__dirname, './')];
 directorys.forEach(function (directory) {

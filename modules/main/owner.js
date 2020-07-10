@@ -15,7 +15,7 @@ module.exports = {
         msg.channel.send(emoji.tickgreen + "reload done"+emoji.tickgreen);
     },
     log: function (bot, msg, args) {
-        langue = "fr";
+        langue = core.read_json(__dirname+"/../../db/"+msg.guild.id+"/guild_settings.json").lang;
         lang = require('../../lang/' + langue + '.js');
         //core.create_log("info",args[2]);
         if (args[1] == "request") {

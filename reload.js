@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-
+delete require.cache[require.resolve("./infos.js")];
+delete require.cache[require.resolve("./settings.js")];
 //console.log(' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!import 1');
 /////////////////////////reload
 directorys = [path.join(__dirname, '/lang/'), path.join(__dirname, '/modules/')];

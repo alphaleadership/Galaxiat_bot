@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 var mkdirp = require('mkdirp');
-emoji = require('../../lang/emoji.js');
+const emoji = require('../../lang/emoji.js');
 module.exports = {
     enable: function (command) {
         if (!command) {
@@ -9,23 +9,7 @@ module.exports = {
             return enable;
         }
     },
-    help: function (bot, msg, args) {
-        const help_message = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle(':tools: Help :tools:')
-            .setURL('https://galaxiat.com')
-            .setAuthor(msg.author.username + "#"+msg.author.discriminator, msg.author.avatarURL, 'https://galaxiat.com')
-            .setDescription('Some here')
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .addField('Inline field title', 'Some value here', false)
-            .setImage('https://i.imgur.com/wSTFkRM.png')
-            .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-
-        //help_message = ":tools: Help :tools:";
-
-        msg.channel.send(help_message);
-    },
+   
     //var ping = Date.now() - msg.createdTimestamp;
     ping: function (bot, msg) {
         ping = cache.bot.ws.ping;

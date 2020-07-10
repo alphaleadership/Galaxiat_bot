@@ -1,9 +1,9 @@
 module.exports = {
 
-    version : function ()
+    end_of_support : function ()
     {
-        version = "1.0.0";
-        return version;
+        end_of_support = "2020-08-08";
+        return end_of_support;
     },
     visible : function ()
     {
@@ -19,11 +19,6 @@ module.exports = {
     {
         lts = true;
         return lts;
-    },
-    lastest : function()
-    {
-        lastest = true;
-        return lastest;
     },
     branch : function ()
     {

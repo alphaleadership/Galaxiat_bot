@@ -6,13 +6,16 @@ const owner = require('../main/owner.js');
 //////////////////////import modules/////////////
 const bot_infos = require('./bot_infos.js');
 const guild_settings = require('./guild_settings.js');
+const help = require('./help.js');
 
 
 module.exports = {
     find_command: function (bot, msg, args) {
-        langue = "fr"
+        langue = core.read_json(__dirname + "/../../db/" + msg.guild.id + "/guild_settings.json").lang;
         lang = require('../../lang/' + langue + '.js');
-        if (args[0] == "reload") {
+        file = __dirname + "/../../db/" + msg.guild.id + "/guild_settings.json";
+        prefix = core.read_json(file).prefix;
+        if (args[0] == prefix + "reload") {
             //console.log(settings.owner_id.includes(msg.author.id));
             if (settings.owner_id.includes(msg.author.id)) {
                 owner.reload(bot, msg, args);
@@ -20,7 +23,7 @@ module.exports = {
                 msg.channel.send(emoji.tickred + " " + lang.lang2);
             }
         }
-        if (args[0] == "log") {
+        if (args[0] == prefix + "log") {
             //console.log(settings.owner_id.includes(msg.author.id));
             if (settings.owner_id.includes(msg.author.id)) {
                 owner.log(bot, msg, args);
@@ -28,17 +31,19 @@ module.exports = {
                 msg.channel.send(emoji.tickred + " " + lang.lang2);
             }
         }
-        if (bot_infos.enable()) {
-            if (args[0] == "help") {
-                bot_infos.help(bot, msg, args);
+        if (help.enable()) {
+            if (args[0] == prefix + "help") {
+                help.help(bot, msg, args)
             }
-            if (args[0] == "ping") {
+        }
+        if (bot_infos.enable()) {
+
+            if (args[0] == prefix + "ping") {
                 bot_infos.ping(bot, msg);
             }
 
         }
-        if (args[0] == "set")
-        {
+        if (args[0] == prefix + "set") {
             if (guild_settings.enable()) {
                 if (msg.member.hasPermission("ADMINISTRATOR")) {
                     if (args[1] == "lang") {
@@ -47,13 +52,14 @@ module.exports = {
                     if (args[1] == "version") {
                         guild_settings.select_version(bot, msg, args);
                     }
-                }
-                else 
-                {
-                    msg.channel.send(emoji.tickred+lang.lang2+emoji.tickred);
+                    if (args[1] == "prefix") {
+                        guild_settings.set_prefix(bot, msg, args);
+                    }
+                } else {
+                    msg.channel.send(emoji.tickred + lang.lang2 + emoji.tickred);
                 }
             }
         }
-        
+
     }
 }
