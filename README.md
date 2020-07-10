@@ -18,6 +18,10 @@ Pour que les custom emoji marche sur votre bot envoyer une invite du bot sur htt
 
 https://discord.gg/8ugWvqu
 
+## liste des version :
+
+[changelog](./changelog.md)
+
 # Galaxiat bot EN
 
 ## Installation or update
@@ -37,3 +41,7 @@ To have the custom emoji working send us the bot invite at https://discord.gg/8u
 ## need more infos ?
 
 https://discord.gg/8ugWvqu
+
+## version list :
+
+[changelog](./changelog.md)
