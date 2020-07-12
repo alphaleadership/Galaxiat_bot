@@ -7,6 +7,7 @@ const owner = require('../main/owner.js');
 const bot_infos = require('./bot_infos.js');
 const guild_settings = require('./guild_settings.js');
 const help = require('./help.js');
+const moderation = require('./moderation.js');
 
 
 module.exports = {
@@ -15,6 +16,8 @@ module.exports = {
         lang = require('../../lang/' + langue + '.js');
         file = __dirname + "/../../db/" + msg.guild.id + "/guild_settings.json";
         prefix = core.read_json(file).prefix;
+
+
         if (args[0] == prefix + "reload") {
             //console.log(settings.owner_id.includes(msg.author.id));
             if (settings.owner_id.includes(msg.author.id)) {
@@ -42,6 +45,36 @@ module.exports = {
                 bot_infos.ping(bot, msg);
             }
 
+        }
+        if (moderation.enable()) {
+            if (args[0] == prefix + "warn") {
+                if (msg.member.hasPermission("KICK_MEMBERS")) {
+                    //console.log(settings.owner_id.includes(msg.author.id));
+                    moderation.warn(bot, msg, args);
+                } else {
+                    msg.channel.send(emoji.tickred + lang.lang2 + emoji.tickred);
+                }
+            }
+            if (args[0] == prefix + "kick") {
+                if (msg.member.hasPermission("KICK_MEMBERS")) {
+                    //console.log(settings.owner_id.includes(msg.author.id));
+                    moderation.kick(bot, msg, args);
+                } else {
+                    msg.channel.send(emoji.tickred + lang.lang2 + emoji.tickred);
+                }
+            }
+            if (args[0] == prefix + "delmod") {
+                if (msg.member.hasPermission("KICK_MEMBERS")) {
+                    //console.log(settings.owner_id.includes(msg.author.id));
+                    moderation.rm_mod_log(bot, msg, args);
+                } else {
+                    msg.channel.send(emoji.tickred + lang.lang2 + emoji.tickred);
+                }
+            }
+            if(args[0] == prefix + "listmod")
+            {
+                moderation.list_mod_log(bot, msg, args);
+            }
         }
         if (args[0] == prefix + "set") {
             if (guild_settings.enable()) {
