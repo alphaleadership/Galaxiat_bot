@@ -1,4 +1,4 @@
-## v1.0.0
+## v1.0.0 patch 1.1
 
 ### End of official support : 2020-08-08
 
