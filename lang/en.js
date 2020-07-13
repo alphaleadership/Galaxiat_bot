@@ -1,9 +1,14 @@
 exports.help1 = "display the infos command";
-exports.help2 = "display the guild settings ";
+exports.help2 = "display the guild settings command";
 exports.help3 = "display the ping of the bot";
 exports.help4 = "set the prefix";
 exports.help5 = "set the lang of the bot";
 exports.help6 = "set the version of the bot";
+exports.help7 = "display the moderation command";
+exports.help8 = "warn the user";
+exports.help9 = "kick the user";
+exports.help10 = "give all the mod log of user";
+exports.help11 = "delete element of mod log";
 
 exports.error = "there was an error during the process"
 exports.disable_module = " : all commands of this module are currently disabled";

@@ -4,6 +4,11 @@ exports.help3 = "donne le ping du bot";
 exports.help4 = "change le prefix";
 exports.help5 = "change la langue du bot";
 exports.help6 = "change la version du bot";
+exports.help7 = "donne les commandes de modération";
+exports.help8 = "warn l'utilisateur";
+exports.help9 = "kick l'utilisateur";
+exports.help10 = "liste les sanction de l'utilisateur";
+exports.help11 = "suprime la sanction de l'utilisateur";
 
 exports.disable_module = " : toute les commande de se module sont désactivé";
 exports.error = "Il y a eu une erreur pendant la commande"
