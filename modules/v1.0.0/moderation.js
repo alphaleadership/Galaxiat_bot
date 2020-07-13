@@ -147,7 +147,7 @@ module.exports = {
         console.log(args.length)
         if (args.length == 2)
         {
-            args[2] = " "
+            args[2] = lang.empty
         }
         if (args.length > 2) {
             guild_id = msg.guild.id;
@@ -155,33 +155,39 @@ module.exports = {
             type = "kick";
             offender = core.getUserFromMention(bot, args[1]);
             boss = security.check_who_boss(bot, msg.guild, msg.author, offender);
-            whaticando = security.check_who_boss(bot, msg.guild, msg.bot, offender);
+            whaticando = security.check_who_boss(bot, msg.guild, msg.member, offender);
             if (boss == 1) {
 
 
-                args.splice(0, 1);
-                args.splice(0, 1);
-                offence = "";
-                args.forEach(arg => {
-                    offence = offence + arg + " "
-                })
-                core.add_moderation_log(guild_id, offender.id, type, moderator_id, offence)
+                if (msg.guild.member(offender.id).kickable) {
 
-                const kick = new Discord.MessageEmbed()
-                    .setColor('#0099ff')
-                    .setTitle(emoji.alert + 'warn' + emoji.alert)
-                    //.setURL('https://galaxiat.com')
-                    .setAuthor(offender.username + "#" + offender.discriminator, offender.avatarURL())
-                    //.setDescription('Some here')
-                    .addField(lang.lang12 + ' :', '<@' + moderator_id + '>', false)
-                    .addField(lang.lang13 + ': ', offence, false)
-                    //.addField('2'+guild_settings_enable + 'guild settings', lang.help2, false)
-                    //.setTimestamp()
 
-                    //.addField("support servers", invite.url, false)
-                    .setFooter(version_select.read_version(msg.guild.id), bot.user.avatarURL());
-                msg.channel.send(kick);
-                offender.kick()
+                    args.splice(0, 1);
+                    args.splice(0, 1);
+                    offence = "";
+                    args.forEach(arg => {
+                        offence = offence + arg + " "
+                    })
+                    core.add_moderation_log(guild_id, offender.id, type, moderator_id, offence)
+    
+                    const kick = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setTitle(emoji.alert + 'kick' + emoji.alert)
+                        //.setURL('https://galaxiat.com')
+                        .setAuthor(offender.username + "#" + offender.discriminator, offender.avatarURL())
+                        //.setDescription('Some here')
+                        .addField(lang.lang12 + ' :', '<@' + moderator_id + '>', false)
+                        .addField(lang.lang13 + ': ', offence, false)
+                        //.addField('2'+guild_settings_enable + 'guild settings', lang.help2, false)
+                        //.setTimestamp()
+    
+                        //.addField("support servers", invite.url, false)
+                        .setFooter(version_select.read_version(msg.guild.id), bot.user.avatarURL());
+                    msg.channel.send(kick);
+                    msg.guild.member(offender.id).kick()
+                } else {
+                    msg.channel.send(emoji.tickred + lang.missing_permission + emoji.tickred);
+                }
             } else if (boss == 2 || boss == 0) {
                 msg.channel.send(emoji.tickred + lang.lang2 + emoji.tickred);
             } else if (boss == 5) {

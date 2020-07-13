@@ -1,18 +1,6 @@
-# Version list : 
+### End of official support : 2020-08-08
 
-## v1.0.0 : Geyser update
-
-### current status :
-
-branch : dev (instable) 
-
-### release dates :
-
-alpha : 12/07/2020
-
-beta : unknow
-
-release : unknow
+Support : https://discord.gg/yDzWCNW
 
 ### Changelog :
 ```diff
@@ -24,4 +12,5 @@ release : unknow
 + implemented security check
 + implemented the select version
 ```
-
+### Version in this release : 
++ v1.0.0 : 2020-08-08

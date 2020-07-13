@@ -171,5 +171,10 @@
   "2020-07-12 18:57:28:521": "TypeError: offender.kick is not a function",
   "2020-07-12 18:59:19:903": "TypeError: Cannot read property 'bot' of undefined",
   "2020-07-12 19:12:8:193": "TypeError: Cannot read property 'bot' of undefined",
-  "2020-07-12 19:12:18:792": "TypeError: Cannot read property 'bot' of undefined"
+  "2020-07-12 19:12:18:792": "TypeError: Cannot read property 'bot' of undefined",
+  "2020-07-13 7:10:36:915": "TypeError: Cannot read property 'bot' of undefined",
+  "2020-07-13 7:13:31:55": "TypeError: Cannot read property 'roles' of null",
+  "2020-07-13 7:17:23:421": "TypeError: offender.kick is not a function",
+  "2020-07-13 7:20:24:509": "TypeError: offender.kick is not a function",
+  "2020-07-13 7:39:2:631": "ReferenceError: guild is not defined"
 }

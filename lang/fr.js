@@ -8,6 +8,8 @@ exports.help6 = "change la version du bot";
 exports.disable_module = " : toute les commande de se module sont désactivé";
 exports.error = "Il y a eu une erreur pendant la commande"
 exports.empty = "vide"
+exports.missing_permission = "je manque de permission : pls mettez mon roles au plus haut et admin";
+
 
 ///////////////////
 exports.lang1 = "le log n'existe pas";

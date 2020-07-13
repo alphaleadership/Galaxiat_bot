@@ -8,6 +8,7 @@ exports.help6 = "set the version of the bot";
 exports.error = "there was an error during the process"
 exports.disable_module = " : all commands of this module are currently disabled";
 exports.empty = "empty"
+exports.missing_permission = "Error : i am missing permissions please take my role at top and make me admin";
 
 ///////////////////
 exports.lang1 = "the log don't exist";
