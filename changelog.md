@@ -4,7 +4,7 @@
 
 ### current status :
 
-branch : dev (instable) 
+branch : alpha
 
 ### release dates :
 
