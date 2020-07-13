@@ -6,13 +6,8 @@ Support : https://discord.gg/yDzWCNW
 
 ### Changelog :
 ```diff
-+ update version command 
-+ reload command (owner only)
-+ moderation command
-+ heart implemented
-+ core implemented
-+ implemented security check
-+ implemented the select version
++ fixed missing dir
++ fixed help command
 ```
 ### Version in this release : 
 + v1.0.0 : 2020-08-08
