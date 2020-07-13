@@ -56,7 +56,7 @@ module.exports = {
                         .addField('Modules :', prefix+'help [moduleid] :ex '+prefix+'help 1', false)
                         .addField('1'+bot_infos_enable + 'bot infos', lang.help1, false)
                         .addField('2'+guild_settings_enable + 'guild settings', lang.help2, false)
-                        .addField('3'+moderation_enable + 'guild settings', lang.help7, false)
+                        .addField('3'+moderation_enable + 'moderation', lang.help7, false)
                         //.setTimestamp()
 
                         .addField("support servers", invite.url, false)
@@ -116,7 +116,7 @@ module.exports = {
                         //.setURL('https://galaxiat.com')
                         .setAuthor(bot.user.username + "#" + bot.user.discriminator, bot.user.avatarURL())
                         //.setDescription('Some here')
-                        .addField('Guild settings :', bot_infos_enable, false)
+                        .addField('moderation :', bot_infos_enable, false)
                         .addField(prefix + 'set prefix [prefix]', lang.help4, false)
                         .addField(prefix + 'set lang [lang]', lang.help5, false)
                         .addField(prefix + 'set version [version]', lang.help6, false)
