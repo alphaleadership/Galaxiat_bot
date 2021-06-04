@@ -4,7 +4,7 @@
   "description": "## Commandes",
   "main": "index.js",
   "dependencies": {
-    "delay": "^4.3.0",
+    "delay": "^4.4.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "mkdirp": "^1.0.4"
